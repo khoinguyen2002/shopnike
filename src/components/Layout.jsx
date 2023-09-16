@@ -7,6 +7,7 @@ function Layout(props) {
       {/* Something Else  */}
       <Header />
       <div>{props.children}</div>
+      {/* <Footer/> */}
     </div>
   );
 }

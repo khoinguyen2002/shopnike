@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import Layout from '../Layout';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
-import { getDummyEmployee } from '../../apis/user-module';
+import { getDummyEmployee, registerNewAccount } from '../../apis/user-module';
 import axios from 'axios';
 
 // https://fullstack.edu.vn/courses/reactjs
@@ -30,25 +30,18 @@ function NewLoginPage() {
   //   });
   //   console.log('dummyDataL ', dummyData);
 
-  // Old way
-  async function fetchPosts() {
-    const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    return data;
-  }
-
-  const { data } = useQuery('posts', fetchPosts);
-
-  const handleClickLogin = () => {
-    loginMutation.mutate({
+  const handleClickRegister = () => {
+    registerMutation.mutate({
       userName: userName,
       passWord: passWord,
+      email: 'fakeEmail@gmail.com',
     });
   };
 
-  const loginMutation = useMutation(
+  const registerMutation = useMutation(
     async (payload) => {
       // Pass post api, but test show i call get api
-      return await getDummyEmployee(payload);
+      return await registerNewAccount(payload);
     },
     {
       onSuccess: (data) => {
@@ -64,8 +57,9 @@ function NewLoginPage() {
             localStorage.setItem('role', 'user');
           }
 
-          toast.success('Login successful!');
-          history.push('/');
+          toast.success('Signup successful!');
+
+          history.push('/login');
         } else {
           toast.error(
             data?.response?.data?.message || data?.message || 'Opps! Something went wrong...',
@@ -103,7 +97,7 @@ function NewLoginPage() {
           />
         </div>
         <br />
-        <button onClick={handleClickLogin}>Login</button>
+        <button onClick={handleClickRegister}>Login</button>
         {/* <Link to="/register">Register</Link> */}
       </div>
     </div>

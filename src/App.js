@@ -3,9 +3,12 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { DataProvider } from './components/Context';
 import '../src/components/css/globals.css';
 import NewLoginPage from './components/login/NewLoginPage';
+import NewRegisterPage from './components/login/NewRegisterPage';
 import HomePage from './components/HomePage/HomePage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductDetails from './components/Products/ProductDetails';
+import ListProducts from './components/Products/ListProducts';
 
 class App extends React.Component {
   render() {
@@ -27,6 +30,18 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/login">
                 <NewLoginPage />
+              </Route>
+              <Route exact path="/register">
+                <NewRegisterPage />
+              </Route>
+              {/* <Route exact path="/about">
+                <AboutPage />
+              </Route> */}
+              <Route exact path="/product">
+                <ListProducts />
+              </Route>
+              <Route exact path="/product/:id">
+                <ProductDetails />
               </Route>
               <Route exact path="/">
                 <HomePage />

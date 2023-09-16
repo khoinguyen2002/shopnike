@@ -77,34 +77,90 @@ function NewLoginPage() {
 
   return (
     <div>
-      <NavLink to={'/'}>
-        <div className="text-blue-400">Back to home 1234</div>
-      </NavLink>
-      <div onClick={clickBackHome}>Back to home with click</div>
-      <h1>Login</h1>
-      <div>
+      {/* <div>
+        <NavLink to={'/'}>
+          <div className="text-blue-400">Back to home 1234</div>
+        </NavLink>
+        <div onClick={clickBackHome}>Back to home with click</div>
+        <h1 className="text-blue">Login</h1>
         <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={(e) => setUserName(e.target.value)}
-          />
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => setPassWord(e.target.value)}
+            />
+          </div>
+          <br />
+          <button onClick={handleClickLogin}>Login</button>
         </div>
-        <br />
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={(e) => setPassWord(e.target.value)}
-          />
+      </div> */}
+
+      <div class="vh-100 d-flex">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid"
+                alt="Sample image"
+              />
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <div>
+                <div class="mb-4 form-outline">
+                  <input
+                    type="email"
+                    id="form3Example3"
+                    class="form-control form-control-lg"
+                    placeholder="Enter a valid email address"
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                  <label class="form-label" for="form3Example3">
+                    Email address
+                  </label>
+                </div>
+
+                <div class="mb-3 form-outline">
+                  <input
+                    type="password"
+                    id="form3Example4"
+                    class="form-control form-control-lg"
+                    placeholder="Enter password"
+                    onChange={(e) => setPassWord(e.target.value)}
+                  />
+                  <label class="form-label" for="form3Example4">
+                    Password
+                  </label>
+                </div>
+
+                <div class="pt-2 mt-4 text-center text-lg-start">
+                  <button onClick={handleClickLogin} type="button" class="btn btn-primary btn-lg">
+                    Login
+                  </button>
+                  <p class="pt-1 mt-2 mb-0 small fw-bold">
+                    Don't have an account?{' '}
+                    <NavLink to="/register" class="link-danger">
+                      Register
+                    </NavLink>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <br />
-        <button onClick={handleClickLogin}>Login</button>
-        {/* <Link to="/register">Register</Link> */}
       </div>
     </div>
   );

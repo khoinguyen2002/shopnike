@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { DataProvider } from './components/Context';
-import '../src/components/css/globals.css';
 import NewLoginPage from './components/login/NewLoginPage';
 import NewRegisterPage from './components/login/NewRegisterPage';
 import HomePage from './components/HomePage/HomePage';

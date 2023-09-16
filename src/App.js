@@ -9,6 +9,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductDetails from './components/Products/ProductDetails';
 import ListProducts from './components/Products/ListProducts';
+import Cart from './components/section/Cart';
+import Payment from './components/section/Payment';
 
 class App extends React.Component {
   render() {
@@ -33,6 +35,12 @@ class App extends React.Component {
               </Route>
               <Route exact path="/register">
                 <NewRegisterPage />
+              </Route>
+              <Route exact path="/cart">
+                <Cart />
+              </Route>
+              <Route exact path="/payment">
+                <Payment />
               </Route>
               {/* <Route exact path="/about">
                 <AboutPage />
